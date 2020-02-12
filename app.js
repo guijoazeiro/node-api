@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+
+require('dotenv').config()
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*')
@@ -16,6 +19,12 @@ app.use((req, res, next) => {
 
 const productRoutes = require('./api/routes/products')
 const ordersRoutes = require('./api/routes/orders')
+
+
+mongoose.connect("mongodb+srv://root:"+process.env.MONGO_ATLAS_PW+"@node-rest-zsujo.mongodb.net/test?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
