@@ -26,6 +26,8 @@ mongoose.connect("mongodb+srv://root:"+process.env.MONGO_ATLAS_PW+"@node-rest-zs
     useUnifiedTopology: true
 })
 
+mongoose.Promise = global.Promise
+
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
