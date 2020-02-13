@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
                         _id: doc._id,
                         request: {
                             type: 'GET',
-                            url: 'http://localhost:3000/products/' + doc._id
+                            url: `${req.protocol}://${req.get('host')}${req.originalUrl}${doc._id}`
                         }
                     }
                 })
@@ -50,7 +50,7 @@ router.post('/', (req, res, next) => {
                     _id: result._id,
                     requests: {
                         type: 'GET',
-                        url: 'http://localhost:3000/products/' + result._id
+                        url: `${req.protocol}://${req.get('host')}${req.originalUrl}${result._id}`
                     }
                 }
             })
@@ -77,7 +77,7 @@ router.get('/:productId', (req, res, next) => {
                     product: doc,
                     request: {
                         type: 'GET',
-                        url: 'http://localhost:3000/products/'
+                        url: `${req.protocol}://${req.get('host')}${req.baseUrl}`
                     }
                 })
             }
@@ -105,7 +105,7 @@ router.patch('/:productId', (req, res, next) => {
                 message: 'Product updated',
                 request: {
                     type: 'GET',
-                    url: 'http://localhost:3000/products/' + id
+                    url: `${req.protocol}://${req.get('host')}${req.originalUrl}${id}`
                 }
             })
         })
@@ -124,7 +124,7 @@ router.delete('/:productId', (req, res, next) => {
                 message: 'Product deleted',
                 request: {
                     type: 'POST',
-                    url: 'http://localhost:3000/products/',
+                    url: `${req.protocol}://${req.get('host')}${req.baseUrl}`,
                     body: {
                         name: 'String',
                         price: 'Nummber'
