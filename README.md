@@ -7,8 +7,8 @@ Clone this repository using ```git clone``` and then run ```npm install```.
 Make sure to also add your Mongo Atlas Admin Password and the JWT Key to a .env file (which you have to create).
 
 ```
-MONGO_ATLAS_PW= xxx
-JWT_KEY = xxx
+MONGO_ATLAS_PW = YOUR_MONGO_USER_PW
+JWT_KEY = YOUR_JWT_KEY
 ```
 
 And then run ```node server.js``` to start the project.

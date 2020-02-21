@@ -22,7 +22,7 @@ const ordersRoutes = require('./api/routes/orders')
 const userRoutes = require('./api/routes/users')
 
 
-mongoose.connect("mongodb+srv://root:"+process.env.MONGO_ATLAS_PW+"@node-rest-zsujo.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://"+process.env.MONGO_ATLAS_USER+":"+process.env.MONGO_ATLAS_PW+"@node-rest-zsujo.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
